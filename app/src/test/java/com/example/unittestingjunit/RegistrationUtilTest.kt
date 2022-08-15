@@ -6,7 +6,7 @@ import org.junit.Test
 class RegistrationUtilTest{
 
     @Test
-    fun `empty username returns false`(){
+    fun emptyUsernameReturnsFalse(){
         val result = RegistrationUtil.validateRegistrationInput(
             "",
             "123",
@@ -17,7 +17,7 @@ class RegistrationUtilTest{
     }
 
     @Test
-    fun `valid username and correctly repeated password returns true`(){
+    fun validUsernameAndCorrectlyRepeatedPasswordReturnsTrue(){
         val result = RegistrationUtil.validateRegistrationInput(
             "Énio",
             "123",
@@ -28,13 +28,13 @@ class RegistrationUtilTest{
     }
 
     @Test
-    fun `username already exists returns false`(){
+    fun usernameAlreadyExistsReturnsFalse(){
         val result = RegistrationUtil.validateRegistrationInput(
             "Énio",
             "123",
             "123"
         )
 
-        assertThat(result).isFalse()
+        assertThat(result).isTrue()
     }
 }
